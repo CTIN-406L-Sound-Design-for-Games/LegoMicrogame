@@ -50,6 +50,7 @@ namespace Unity.LEGO.EditorExt
 
             EditorGUI.EndDisabledGroup();
 
+            EditorGUILayout.PropertyField(m_AudioObjProp);
             EditorGUILayout.PropertyField(m_AudioProp);
             EditorGUILayout.PropertyField(m_AudioVolumeProp);
 

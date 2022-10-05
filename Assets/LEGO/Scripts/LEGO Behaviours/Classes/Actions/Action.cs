@@ -6,12 +6,17 @@ using Unity.LEGO.Behaviours.Triggers;
 #if UNITY_EDITOR
 using UnityEditor.SceneManagement;
 #endif
+using Unity.LEGO.Minifig;
 
 namespace Unity.LEGO.Behaviours.Actions
 {
     public abstract class Action : LEGOBehaviour
     {
         [SerializeField, Tooltip("The audio clip used by the Behaviour.")]
+        public AudioObject m_AudioObj;
+        
+        //Original Audio clip used by LEGO Project
+        [SerializeField, Tooltip("Abandoned way of playing audio clip")]
         protected AudioClip m_Audio;
 
         [SerializeField, Range(0.0f, 1.0f), Tooltip("The volume of the audio.")]
@@ -77,7 +82,12 @@ namespace Unity.LEGO.Behaviours.Actions
 
         protected AudioSource PlayAudio(bool loop = false, bool spatial = true, bool moveWithScope = true, bool scopeDeterminesDistance = true, bool destroyWithAction = true, float pitch = 1.0f)
         {
-            if (m_Audio)
+            if (m_AudioObj)
+            {
+                m_AudioObj.AudioObjectPlay();
+                return null;
+            }
+            else if (m_Audio)
             {
                 // Create new game object for audio source.
                 GameObject go = new GameObject("Audio");
@@ -124,10 +134,9 @@ namespace Unity.LEGO.Behaviours.Actions
 
                 return audioSource;
             }
-            else
-            {
-                return null;
-            }
+            
+            return null;
+            
         }
 
         protected virtual void OnDestroy()

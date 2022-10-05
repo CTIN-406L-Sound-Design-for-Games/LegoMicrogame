@@ -6,7 +6,6 @@ namespace Unity.LEGO.Minifig
 
     public class Minifig : MonoBehaviour
     {
-
 #pragma warning disable 649
         [HideInInspector, SerializeField]
         Transform headAccessoryLocator;

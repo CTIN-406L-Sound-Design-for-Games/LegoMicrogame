@@ -38,11 +38,11 @@ namespace Unity.LEGO.EditorExt
             inputEnabledProp = serializedObject.FindProperty("inputEnabled");
             maxJumpsInAirProp = serializedObject.FindProperty("maxJumpsInAir");
 
-            stepAudioClipsProp = serializedObject.FindProperty("stepAudioClips");
-            jumpAudioClipProp = serializedObject.FindProperty("jumpAudioClip");
-            doubleJumpAudioClipProp = serializedObject.FindProperty("doubleJumpAudioClip");
-            landAudioClipProp = serializedObject.FindProperty("landAudioClip");
-            explodeAudioClipProp = serializedObject.FindProperty("explodeAudioClip");
+            stepAudioClipsProp = serializedObject.FindProperty("stepAudioObj");
+            jumpAudioClipProp = serializedObject.FindProperty("jumpAudioObj");
+            doubleJumpAudioClipProp = serializedObject.FindProperty("doubleJumpAudioObj");
+            landAudioClipProp = serializedObject.FindProperty("landAudioObj");
+            explodeAudioClipProp = serializedObject.FindProperty("explodeAudioObj");
         }
 
         public override void OnInspectorGUI()

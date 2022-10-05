@@ -56,7 +56,7 @@ namespace Unity.LEGO.Minifig
         {
             minifig = GetComponentInChildren<Minifig>();
             controller = GetComponent<CharacterController>();
-            audioSource = GetComponent<AudioSource>();
+            //audioSource = GetComponent<AudioSource>();
             animators = GetComponentsInChildren<Animator>();
             animator = GetComponent<Animator>();
 
@@ -193,16 +193,18 @@ namespace Unity.LEGO.Minifig
                             {
                                 jumpsInAir--;
 
-                                if (doubleJumpAudioClip)
+                                if (doubleJumpAudioObj)
                                 {
-                                    audioSource.PlayOneShot(doubleJumpAudioClip);
+                                    doubleJumpAudioObj.AudioObjectPlay();
+                                    //audioSource.PlayOneShot(doubleJumpAudioClip);
                                 }
                             }
                             else
                             {
-                                if (jumpAudioClip)
+                                if (jumpAudioObj)
                                 {
-                                    audioSource.PlayOneShot(jumpAudioClip);
+                                    jumpAudioObj.AudioObjectPlay();
+                                    //audioSource.PlayOneShot(jumpAudioClip);
                                 }
                             }
 
@@ -262,7 +264,7 @@ namespace Unity.LEGO.Minifig
 
             if (specialAudioClip)
             {
-                audioSource.PlayOneShot(specialAudioClip);
+                //audioSource.PlayOneShot(specialAudioClip);
             }
 
             this.onSpecialComplete = onSpecialComplete;

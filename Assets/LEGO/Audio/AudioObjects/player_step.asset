@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b6c70e030bada4d956d0adee7df5c4, type: 3}
+  m_Name: player_step
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 39948ec2175e749819ecd850a1d0e5af, type: 3}
+  - {fileID: 8300000, guid: 97adc7a6316eb42039437d84c81b25c9, type: 3}
+  - {fileID: 8300000, guid: 325a89399f940412abe873057ca26add, type: 3}
+  - {fileID: 8300000, guid: 2a988a8f5a6ac4c5a9084b2a952daa59, type: 3}
+  audioMixerGroup: {fileID: 0}
+  loop: 0
+  randomPitch: 0
+  minPitch: 0.9
+  maxPitch: 1.1
+  randomVolume: 0
+  minVolume: 0.5
+  maxVolume: 1
+  limitNumberOfVoices: 0
+  maximumNumberOfVoices: 1
+  fadesEnabled: 0
+  fadeInTime: 0
+  fadeOutTime: 0
+  playback: 0
+  audioObjectType: 0
+  playNewestVoice: 1

@@ -196,16 +196,18 @@ namespace Unity.LEGO.Minifig
                         {
                             jumpsInAir--;
 
-                            if (doubleJumpAudioClip)
+                            if (doubleJumpAudioObj)
                             {
-                                audioSource.PlayOneShot(doubleJumpAudioClip);
+                                doubleJumpAudioObj.AudioObjectPlay();
+                                //audioSource.PlayOneShot(doubleJumpAudioClip);
                             }
                         }
                         else
                         {
-                            if (jumpAudioClip)
+                            if (jumpAudioObj)
                             {
-                                audioSource.PlayOneShot(jumpAudioClip);
+                                jumpAudioObj.AudioObjectPlay();
+                                //audioSource.PlayOneShot(jumpAudioClip);
                             }
                         }
 

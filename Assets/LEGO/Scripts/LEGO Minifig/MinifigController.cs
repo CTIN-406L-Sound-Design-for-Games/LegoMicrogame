@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.LEGO;
+using UnityEngine.Serialization;
 
 namespace Unity.LEGO.Minifig
 {
@@ -86,11 +88,12 @@ namespace Unity.LEGO.Minifig
         public float jumpSpeed = 20f;
         public float gravity = 40f;
 
-        public List<AudioClip> stepAudioClips = new List<AudioClip>();
-        public AudioClip jumpAudioClip;
-        public AudioClip doubleJumpAudioClip;
-        public AudioClip landAudioClip;
-        public AudioClip explodeAudioClip;
+        //-----------------------------------
+        [FormerlySerializedAs("stepAudioClips")] public AudioObject stepAudioObj;
+        [FormerlySerializedAs("jumpAudioClip")] public AudioObject jumpAudioObj;
+        [FormerlySerializedAs("doubleJumpAudioClip")] public AudioObject doubleJumpAudioObj;
+        [FormerlySerializedAs("landAudioClip")] public AudioObject landAudioObj;
+        [FormerlySerializedAs("explodeAudioClip")] public AudioObject explodeAudioObj;
 
         [SerializeField]
         protected InputType inputType = InputType.Tank;
@@ -167,7 +170,7 @@ namespace Unity.LEGO.Minifig
         protected Minifig minifig;
         protected CharacterController controller;
         protected Animator animator;
-        protected AudioSource audioSource;
+        //protected AudioSource audioSource;
 
         protected bool airborne;
         protected float airborneTime;
@@ -230,7 +233,7 @@ namespace Unity.LEGO.Minifig
             minifig = GetComponent<Minifig>();
             controller = GetComponent<CharacterController>();
             animator = GetComponent<Animator>();
-            audioSource = GetComponent<AudioSource>();
+            //audioSource = GetComponent<AudioSource>();
 
             // Initialise animation.
             animator.SetBool(groundedHash, true);
@@ -365,16 +368,18 @@ namespace Unity.LEGO.Minifig
                         {
                             jumpsInAir--;
 
-                            if (doubleJumpAudioClip)
+                            if (doubleJumpAudioObj)
                             {
-                                audioSource.PlayOneShot(doubleJumpAudioClip);
+                                doubleJumpAudioObj.AudioObjectPlay();
+                                //audioSource.PlayOneShot(doubleJumpAudioClip);
                             }
                         }
                         else
                         {
-                            if (jumpAudioClip)
+                            if (jumpAudioObj)
                             {
-                                audioSource.PlayOneShot(jumpAudioClip);
+                                jumpAudioObj.AudioObjectPlay();
+                                //audioSource.PlayOneShot(jumpAudioClip);
                             }
                         }
 
@@ -657,9 +662,10 @@ namespace Unity.LEGO.Minifig
                 // Play landing sound if landing sufficiently hard.
                 if (moveDelta.y < -5.0f)
                 {
-                    if (landAudioClip)
+                    if (landAudioObj)
                     {
-                        audioSource.PlayOneShot(landAudioClip);
+                        landAudioObj.AudioObjectPlay();
+                        //audioSource.PlayOneShot(landAudioClip);
                     }
                 }
 
@@ -699,9 +705,10 @@ namespace Unity.LEGO.Minifig
             var transferredSpeed = Vector3.Scale(moveDelta + externalMotion, new Vector3(horizontalVelocityTransferRatio, verticalVelocityTransferRatio, horizontalVelocityTransferRatio));
             var transferredAngularSpeed = (rotateSpeed + externalRotation) * angularVelocityTransferRatio;
 
-            if (explodeAudioClip)
+            if (explodeAudioObj)
             {
-                audioSource.PlayOneShot(explodeAudioClip);
+                explodeAudioObj.AudioObjectPlay();
+                //audioSource.PlayOneShot(explodeAudioClip);
             }
 
             MinifigExploder.Explode(minifig, leftArmTip, rightArmTip, leftLegTip, rightLegTip, head, transferredSpeed, transferredAngularSpeed);
@@ -731,7 +738,7 @@ namespace Unity.LEGO.Minifig
 
             if (specialAudioClip)
             {
-                audioSource.PlayOneShot(specialAudioClip);
+                //audioSource.PlayOneShot(specialAudioClip);
             }
 
             this.onSpecialComplete = onSpecialComplete;
@@ -844,14 +851,15 @@ namespace Unity.LEGO.Minifig
         {
             if (!stepped)
             {
-                if (stepAudioClips.Count > 0)
-                {
-                    var stepAudioClip = stepAudioClips[UnityEngine.Random.Range(0, stepAudioClips.Count)];
-                    if (stepAudioClip)
-                    {
-                        audioSource.PlayOneShot(stepAudioClip);
-                    }
-                }
+                stepAudioObj.AudioObjectPlay();
+                // if (stepAudioClips.Count > 0)
+                // {
+                //     var stepAudioClip = stepAudioClips[UnityEngine.Random.Range(0, stepAudioClips.Count)];
+                //     if (stepAudioClip)
+                //     {
+                //         audioSource.PlayOneShot(stepAudioClip);
+                //     }
+                // }
             }
             stepped = true;
         }

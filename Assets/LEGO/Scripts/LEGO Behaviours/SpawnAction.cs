@@ -716,6 +716,7 @@ namespace Unity.LEGO.Behaviours.Actions
         void PlayAudio()
         {
             var audioSource = PlayAudio(false, true, false, false, false);
+            Debug.Log(audioSource);
             if (audioSource) {
                 audioSource.transform.position = m_CurrentBounds.center;
             }
