@@ -16,9 +16,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 542490ca55814441981ef88f5d1f2dc6, type: 3}
   audioMixerGroup: {fileID: 0}
   loop: 0
-  randomPitch: 0
-  minPitch: 0.9
-  maxPitch: 1.1
+  randomPitch: 1
+  minPitch: 0.5
+  maxPitch: 2
   randomVolume: 0
   minVolume: 0.5
   maxVolume: 1

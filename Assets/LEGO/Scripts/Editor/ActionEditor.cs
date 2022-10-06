@@ -10,8 +10,8 @@ namespace Unity.LEGO.EditorExt
         protected Action m_Action;
 
         protected SerializedProperty m_AudioObjProp;
-        protected SerializedProperty m_AudioProp;
-        protected SerializedProperty m_AudioVolumeProp;
+        //protected SerializedProperty m_AudioProp;
+        //protected SerializedProperty m_AudioVolumeProp;
 
         protected override void OnEnable()
         {
@@ -20,8 +20,8 @@ namespace Unity.LEGO.EditorExt
             m_Action = (Action)target;
 
             m_AudioObjProp = serializedObject.FindProperty("m_AudioObj");
-            m_AudioProp = serializedObject.FindProperty("m_Audio");
-            m_AudioVolumeProp = serializedObject.FindProperty("m_AudioVolume");
+            //m_AudioProp = serializedObject.FindProperty("m_Audio");
+            //m_AudioVolumeProp = serializedObject.FindProperty("m_AudioVolume");
         }
 
         public override void OnSceneGUI()

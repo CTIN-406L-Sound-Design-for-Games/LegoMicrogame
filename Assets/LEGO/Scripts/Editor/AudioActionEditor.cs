@@ -21,8 +21,9 @@ namespace Unity.LEGO.EditorExt
         {
             EditorGUI.BeginDisabledGroup(EditorApplication.isPlaying && m_LoopProp.boolValue);
 
-            EditorGUILayout.PropertyField(m_AudioProp);
-            EditorGUILayout.PropertyField(m_AudioVolumeProp);
+            EditorGUILayout.PropertyField(m_AudioObjProp);
+            //EditorGUILayout.PropertyField(m_AudioProp);
+            //.PropertyField(m_AudioVolumeProp);
             EditorGUILayout.PropertyField(m_SpatialProp);
             EditorGUILayout.PropertyField(m_LoopProp);
 

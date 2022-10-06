@@ -20,8 +20,8 @@ namespace Unity.LEGO.EditorExt
         protected override void CreateGUI()
         {
             EditorGUILayout.PropertyField(m_AudioObjProp);
-            EditorGUILayout.PropertyField(m_AudioProp);
-            EditorGUILayout.PropertyField(m_AudioVolumeProp);
+            //EditorGUILayout.PropertyField(m_AudioProp);
+            //EditorGUILayout.PropertyField(m_AudioVolumeProp);
             EditorGUILayout.PropertyField(m_PowerProp);
             EditorGUILayout.PropertyField(m_RemoveBricksProp);
         }
