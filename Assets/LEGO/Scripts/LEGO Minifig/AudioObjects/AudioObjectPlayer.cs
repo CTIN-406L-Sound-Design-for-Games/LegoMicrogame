@@ -213,5 +213,10 @@ namespace Unity.LEGO.Minifig
 
             yield break;
         }
+
+        public void ResetSequentialOrder()
+        {
+            AudioObject.lastClipNumber = -1;
+        }
     }
 }

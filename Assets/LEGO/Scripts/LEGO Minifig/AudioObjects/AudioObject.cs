@@ -37,7 +37,7 @@ namespace Unity.LEGO.Minifig
         public bool fadesEnabled = false;
         public float fadeInTime = 0.0f;
         public float fadeOutTime = 0.0f;
-        private int lastClipNumber = -1;
+        public int lastClipNumber = -1;
 
         public Playback playback;
 
